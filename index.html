@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;-webkit-text-size-adjust:100%}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>History School Brand Picks</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@500;700&family=Archivo:wght@400;500;700&family=Jost:wght@600&family=Libre+Baskerville&family=Fraunces:wght@500&family=Asap+Condensed:wght@600&family=Bricolage+Grotesque:wght@700&display=swap">
+<style>
+/* Layout: one narrow reading column; each pair is a two-up choice that stacks on phones; a sticky progress line counts picks. */
+:root {
+  --paper: #F3F1F0;
+  --card: #FFFFFF;
+  --ink: #141312;
+  --muted: #5E5956;
+  --rule: #D9D4D2;
+  --accent: #C85A22;        /* Nick Prestileo Design orange, darkened for text contrast */
+  --accent-soft: #F6DFD2;
+  --focus: #1F5FBF;
+  --display: "Archivo Narrow", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --body: "Archivo", "Helvetica Neue", Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #161514; --card: #201E1D; --ink: #EDEAE8; --muted: #A9A29E;
+    --rule: #3A3633; --accent: #EE8A55; --accent-soft: #3A2418; --focus: #7FB0FF;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #161514; --card: #201E1D; --ink: #EDEAE8; --muted: #A9A29E;
+  --rule: #3A3633; --accent: #EE8A55; --accent-soft: #3A2418; --focus: #7FB0FF;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.55; }
+.wrap { max-width: 760px; margin: 0 auto; padding-inline: 20px; padding-block: 40px 80px; }
+h1, h2, h3 { font-family: var(--display); font-weight: 700; line-height: 1.1; text-wrap: balance; margin: 0; }
+.eyebrow { font-family: var(--display); font-weight: 500; text-transform: uppercase; letter-spacing: .12em; font-size: 13px; color: var(--accent); }
+header { display: grid; gap: 14px; padding-bottom: 28px; border-bottom: 2px solid var(--ink); }
+header h1 { font-size: clamp(36px, 7vw, 56px); letter-spacing: -.01em; }
+.lede { font-size: 18px; max-width: 60ch; margin: 0; }
+.how { display: flex; flex-wrap: wrap; gap: 8px 20px; margin: 0; padding: 0; list-style: none; color: var(--muted); font-size: 14px; }
+.how li::before { content: "•"; color: var(--accent); margin-right: 8px; }
+
+.progress { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--paper); padding-block: 12px; border-bottom: 1px solid var(--rule); display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--muted); }
+.bar { flex: 1; height: 4px; background: var(--rule); border-radius: 2px; overflow: hidden; }
+.bar span { display: block; height: 100%; width: 0; background: var(--accent); transition: width .25s ease; }
+.progress b { color: var(--ink); font-variant-numeric: tabular-nums; }
+
+section { padding-block: 36px 8px; display: grid; gap: 18px; }
+section > h2 { font-size: 28px; }
+.sub { margin: 0; color: var(--muted); max-width: 60ch; }
+
+label.field { display: grid; gap: 6px; font-weight: 500; }
+input[type=text], textarea { font: inherit; color: var(--ink); background: var(--card); border: 1px solid var(--rule); border-radius: 4px; padding: 12px 14px; width: 100%; }
+textarea { min-height: 110px; resize: vertical; }
+input[type=text]:focus, textarea:focus { outline: 2px solid var(--focus); outline-offset: 1px; border-color: transparent; }
+
+.pair { display: grid; gap: 12px; padding-block: 22px; border-top: 1px solid var(--rule); }
+.pair-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.pair-head .num { font-family: var(--display); font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
+.pair-head h3 { font-size: 21px; }
+.choices { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 560px) { .choices { grid-template-columns: 1fr; } }
+.choices.scale { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; }
+@media (max-width: 700px) { .choices.scale { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.choices.scale label { padding: 8px; gap: 6px; }
+.choices.scale .pv.sq { aspect-ratio: 1 / 1; }
+.choices.scale .swatches { grid-template-columns: 1fr; grid-template-rows: 2fr 1fr 1fr 1fr; }
+.choices.scale .desc { font-size: 13px; }
+.choice { position: relative; min-width: 0; }
+.choice input { position: absolute; opacity: 0; pointer-events: none; }
+.choice label { display: grid; gap: 10px; height: 100%; padding: 12px; background: var(--card); border: 2px solid var(--rule); border-radius: 6px; cursor: pointer; transition: border-color .15s ease; }
+.choice label:hover { border-color: var(--muted); }
+.choice input:focus-visible + label { outline: 2px solid var(--focus); outline-offset: 2px; }
+.choice input:checked + label { border-color: var(--accent); background: var(--accent-soft); }
+.tag { font-family: var(--display); font-weight: 700; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); display: flex; justify-content: space-between; }
+.choice input:checked + label .tag { color: var(--accent); }
+.choice input:checked + label .tag::after { content: "Picked"; }
+.title { font-weight: 700; }
+.desc { font-size: 14px; color: var(--muted); }
+
+/* preview frames */
+.pv { aspect-ratio: 16 / 10; max-width: 100%; border-radius: 4px; overflow: hidden; display: grid; place-items: center; background: var(--paper); border: 1px solid var(--rule); }
+.pv.slot { border-style: dashed; color: var(--muted); font-size: 13px; text-align: center; padding: 12px; }
+.pv img { width: 100%; height: 100%; object-fit: cover; }
+.pv img.fit { object-fit: contain; padding: 14%; background: #FFFFFF; }
+.swatches { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; width: 100%; height: 100%; }
+.swatches i { display: block; }
+.screen { width: 100%; height: 100%; display: grid; grid-template-columns: 22% 1fr; }
+.screen .side { background: #E9ECF1; }
+.screen .main { background: #FFFFFF; padding: 10% 8%; display: grid; align-content: start; gap: 7%; }
+.screen .line { height: 6px; background: #D5D9E0; border-radius: 3px; }
+.screen .btn { width: 38%; height: 14px; border-radius: 3px; background: #CC5500; }
+.screen.field .side { background: #1F4FA3; }
+.screen.field .main { background: #FFFFFF; padding: 0; gap: 0; grid-template-rows: 32% 1fr; }
+.screen.field .band { background: #CC5500; }
+.screen.field .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; padding: 8px; }
+.screen.field .tiles i { border-radius: 3px; display: block; }
+.script { font-family: "Pinyon Script", "Snell Roundhand", cursive; font-size: clamp(30px, 6vw, 40px); color: #2B2118; background: #EFE6D2; width: 100%; height: 100%; display: grid; place-items: center; }
+.modern { font-family: "Jost", "Futura", "Century Gothic", sans-serif; font-weight: 600; font-size: clamp(24px, 4.6vw, 32px); letter-spacing: .02em; color: #111; background: #FFFFFF; width: 100%; height: 100%; display: grid; place-items: center; text-transform: uppercase; }
+.typ { width: 100%; height: 100%; display: grid; place-items: center; text-align: center; padding: 10%; background: #FFFFFF; color: #111; font-size: clamp(17px, 2.6vw, 24px); line-height: 1.15; }
+.symbol { width: 100%; height: 100%; display: grid; place-items: center; background: #FFFFFF; }
+.symbol span { width: 34%; aspect-ratio: 1; background: #1E9E6A; clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0 50%); }
+.wordmark { width: 100%; height: 100%; display: grid; place-items: center; background: #FFFFFF; color: #111; font-family: Georgia, "Times New Roman", serif; font-size: clamp(22px, 4.4vw, 30px); font-style: italic; }
+
+.qbox { display: grid; gap: 28px; }
+.q { display: grid; gap: 10px; }
+.q .qt { font-weight: 700; }
+.q .hint { font-size: 13px; color: var(--muted); font-weight: 400; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { position: relative; }
+.chip input { position: absolute; opacity: 0; pointer-events: none; }
+.chip label { display: inline-block; padding: 9px 14px; border: 2px solid var(--rule); border-radius: 999px; background: var(--card); cursor: pointer; font-size: 15px; line-height: 1.3; }
+.chip label:hover { border-color: var(--muted); }
+.chip input:focus-visible + label { outline: 2px solid var(--focus); outline-offset: 2px; }
+.chip input:checked + label { border-color: var(--accent); background: var(--accent-soft); }
+.q input[type=text] { margin-top: 2px; }
+.send { display: grid; gap: 14px; padding: 22px; background: var(--card); border: 1px solid var(--rule); border-radius: 6px; }
+.row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+button, .linkbtn { font: inherit; font-weight: 700; padding: 12px 18px; border-radius: 4px; border: 2px solid var(--ink); background: var(--ink); color: var(--paper); cursor: pointer; text-decoration: none; }
+.linkbtn.ghost { background: transparent; color: var(--ink); }
+button:focus-visible, .linkbtn:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.status { font-size: 14px; color: var(--muted); min-height: 1.4em; }
+pre.out { margin: 0; white-space: pre-wrap; word-break: break-word; font-family: var(--body); font-size: 14px; background: var(--paper); border: 1px solid var(--rule); border-radius: 4px; padding: 14px; max-height: 320px; overflow: auto; }
+.addr { font-weight: 700; user-select: all; }
+.credit { margin: 32px 0 0; font-size: 12px; color: var(--muted); max-width: 70ch; }
+footer { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--rule); color: var(--muted); font-size: 13px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">The Gilder Lehrman History School · Before our call</div>
+    <h1>What should the School feel like?</h1>
+    <p class="lede">Eight quick picks and three questions. There are no right answers, and none of the pictures are logo ideas. They show where each of you leans, so the next round lands closer to what you picture.</p>
+    <ul class="how">
+      <li>Under ten minutes</li>
+      <li>One per person, on your own</li>
+      <li>Send by Monday, October 12</li>
+    </ul>
+  </header>
+
+  <div class="progress" aria-live="polite"><span><b id="count">0</b> of 8 picked</span><div class="bar"><span id="fill"></span></div></div>
+
+  <section aria-labelledby="who">
+    <h2 id="who">Your name</h2>
+    <label class="field" for="name">So I can see where each person leans
+      <input type="text" id="name" autocomplete="name" placeholder="First and last name">
+    </label>
+  </section>
+
+  <section aria-labelledby="picks">
+    <h2 id="picks">Eight picks</h2>
+    <p class="sub">Go with your first reaction. Four are five-step scales; the rest are pairs. If both sides of a pair feel wrong, pick the one that's less wrong.</p>
+    <div id="pairs"></div>
+  </section>
+
+  <section aria-labelledby="qs">
+    <h2 id="qs">Three questions</h2>
+    <p class="sub">Tap an answer. Add a line in your own words if none of them fit.</p>
+    <div id="qbox" class="qbox"></div>
+  </section>
+
+  <section aria-labelledby="sendh">
+    <h2 id="sendh">Send it to Nick</h2>
+    <div class="send">
+      <p class="sub" style="margin:0">Copy your answers, then paste them into an email to <span class="addr">nprestileo@gmail.com</span>, or into a reply on our email thread.</p>
+      <div class="row">
+        <button type="button" id="copy">Copy my answers</button>
+        <a class="linkbtn ghost" id="mail" href="#">Open an email</a>
+      </div>
+      <div class="status" id="status" role="status"></div>
+      <pre class="out" id="out" hidden></pre>
+    </div>
+  </section>
+
+  <p class="credit">Images shown for reference only: The New Yorker, October 12, 2026 cover; Library of Congress, Smithsonian Learning Lab and Khan Academy home pages; Duolingo app screens; Library of Congress Main Reading Room (Carol M. Highsmith); the Gettysburg Address, Bliss copy; letter from George W. Weeks to his parents, Library of Congress; Harvard, Yale and UNC marks; Hillsdale College, Teaching American History, National Humanities Center, Common App and Duolingo marks; classroom stock photo.</p>
+  <footer><span>Nick Prestileo Design</span><span>Call: Tuesday, October 13</span></footer>
+</div>
+
+<script>
+const PAIRS = [
+  { q: "Voice", scale: true,
+    prompt: "Pick the most playful step that still feels like the School.",
+    opts: [
+      { t: "The New Yorker", d: "Literary and wry.", pv: "img", src: "images/1a.jpg", alt: "The New Yorker cover, October 12, 2026" },
+      { t: "Library of Congress", d: "Scholarly and trusted.", pv: "img", src: "images/v2.jpg", alt: "The Library of Congress home page" },
+      { t: "Smithsonian Learning Lab", d: "Serious but inviting.", pv: "img", src: "images/v3.jpg", alt: "The Smithsonian Learning Lab home page" },
+      { t: "Khan Academy", d: "Friendly and clear.", pv: "img", src: "images/v4.jpg", alt: "The Khan Academy home page with its planet character" },
+      { t: "Duolingo", d: "Playful and bright.", pv: "img", src: "images/1b.jpg", alt: "Three Duolingo lesson screens on a green background" }
+    ] },
+  { q: "How far can color go?", scale: true,
+    prompt: "Pick the furthest step you'd still be comfortable with.",
+    opts: [
+      { t: "Institute-close", d: "Navy, oxblood and stone.", sw: ["#0E2447", "#66023C", "#635147", "#C9D1DA"] },
+      { t: "Brightened", d: "The same families, lifted.", sw: ["#2B5CB8", "#B03A48", "#8C7A6B", "#D6DEE8"] },
+      { t: "Vivid, blue-anchored", d: "A strong blue base with saturated accents.", sw: ["#1D4ED8", "#102A72", "#14B8A6", "#E8456B"] },
+      { t: "Bright and mixed", d: "Cobalt with lime, teal and lilac. Many colors, still grounded.", sw: ["#2448C8", "#97C21F", "#0FA3B1", "#D9B8E6"] },
+      { t: "All the way", d: "Neon magenta, cyan and violet on a deep night blue.", sw: ["#F64BF0", "#00E5FF", "#7A2BFF", "#1B0B3A"] }
+    ] },
+  { q: "Color in use", prompt: "How should color show up on a course screen?", a: { t: "Color as accent", d: "A mostly white screen. Orange marks the one thing to click.", pv: "accent" },
+                       b: { t: "Color as the field", d: "Whole panels and headers in color. The screen itself feels bright.", pv: "field" } },
+  { q: "Type", scale: true,
+    prompt: "Pick the step that feels most like the School.",
+    opts: [
+      { t: "Classic serif", d: "The type of old documents and transcripts.", font: "'Libre Baskerville', Baskerville, Georgia, serif", w: 400 },
+      { t: "Modern serif", d: "Scholarly, but warmer and softer.", font: "'Fraunces', Georgia, serif", w: 500 },
+      { t: "Condensed sans", d: "Tall and efficient, the Asap Condensed family.", font: "'Asap Condensed', 'Arial Narrow', sans-serif", w: 600 },
+      { t: "Clean contemporary", d: "Geometric and digital.", font: "'Jost', Futura, 'Century Gothic', sans-serif", w: 600 },
+      { t: "Expressive display", d: "A face with real personality and quirks.", font: "'Bricolage Grotesque', 'Arial Black', sans-serif", w: 700 }
+    ] },
+  { q: "How clever should the mark be?", scale: true,
+    prompt: "Pick the furthest step that still feels trustworthy.",
+    opts: [
+      { t: "Heritage", d: "A building and serif caps. What history groups usually do.", pv: "img", fit: true, src: "images/m1.svg", alt: "Hillsdale College logo" },
+      { t: "Familiar symbol", d: "Flag and stars. Read in a second.", pv: "img", fit: true, src: "images/m2.svg", alt: "Teaching American History logo" },
+      { t: "Monogram", d: "Initials. Simple and official.", pv: "img", fit: true, src: "images/m3.svg", alt: "National Humanities Center logo" },
+      { t: "Clever", d: "A shape with a second meaning you notice later.", pv: "img", fit: true, src: "images/m4.svg", alt: "Common App logo" },
+      { t: "Playful", d: "A character with personality.", pv: "img", fit: true, src: "images/m5.png", alt: "Duolingo owl app icon" }
+    ] },
+  { q: "Imagery", prompt: "What should the School's pictures show?", a: { t: "Places and objects", d: "Reading rooms, documents and the objects of the Collection. Calm and collected.", pv: "img", src: "images/6a.jpg", alt: "The Main Reading Room of the Library of Congress" },
+                  b: { t: "Students", d: "Students mid-discussion, color, motion. A place you want to join.", pv: "img", src: "images/6b.jpg", alt: "Students in a diplomacy simulation class, flags on the desks" } },
+  { q: "Whose story", prompt: "Whose voices should the School put forward?", a: { t: "Famous voices", d: "The Gettysburg Address in Lincoln's hand. The people in the textbook.", pv: "img", src: "images/7a.jpg", alt: "The Gettysburg Address, handwritten by Abraham Lincoln" },
+                      b: { t: "Everyday voices", d: "A soldier writes home on his last night in the army. People like the students themselves.", pv: "img", src: "images/7b.jpg", alt: "A handwritten letter beginning Dear Mother and Father" } },
+  { q: "How official", prompt: "How official should it look?", a: { t: "Prestige", d: "Harvard and Yale shields. Centuries of authority.", pv: "img", src: "images/8a.jpg", alt: "The Harvard and Yale shields" },
+                       b: { t: "Elite but open", d: "UNC Chapel Hill. Serious and selective, and still public and welcoming.", pv: "img", src: "images/8b.jpg", alt: "The University of North Carolina at Chapel Hill logo" } }
+];
+
+function preview(o) {
+  if (o.font) return '<div class="typ" aria-hidden="true" style="font-family:' + o.font.replace(/"/g, '') + ';font-weight:' + o.w + '">We the People</div>';
+  if (o.sw) return '<div class="swatches" aria-hidden="true">' + o.sw.map(c => '<i style="background:' + c + '"></i>').join("") + '</div>';
+  switch (o.pv) {
+    case "dark":   return '<div class="swatches" aria-hidden="true"><i style="background:#0E2447"></i><i style="background:#66023C"></i><i style="background:#635147"></i><i style="background:#C9D1DA"></i></div>';
+    case "bright": return '<div class="swatches" aria-hidden="true"><i style="background:#2448E8"></i><i style="background:#E0287A"></i><i style="background:#12B76A"></i><i style="background:#8B3CF7"></i></div>';
+    case "accent": return '<div class="screen" aria-hidden="true"><div class="side"></div><div class="main"><div class="line" style="width:70%"></div><div class="line"></div><div class="line" style="width:85%"></div><div class="btn"></div></div></div>';
+    case "field":  return '<div class="screen field" aria-hidden="true"><div class="side"></div><div class="main"><div class="band"></div><div class="tiles"><i style="background:#1E9E6A"></i><i style="background:#F2D3BF"></i><i style="background:#D6E4FA"></i><i style="background:#CC5500"></i></div></div></div>';
+    case "script": return '<div class="script" aria-hidden="true">We the People</div>';
+    case "modern": return '<div class="modern" aria-hidden="true">We the People</div>';
+    case "symbol": return '<div class="symbol" aria-hidden="true"><span></span></div>';
+    case "img": return '<img src="' + o.src + '" alt="' + o.alt + '" loading="lazy"' + (o.fit ? ' class="fit"' : '') + '>';
+    case "wordmark": return '<div class="wordmark" aria-hidden="true">The Name Alone</div>';
+    default: return '<div class="pv slot">' + o.slot + '</div>';
+  }
+}
+
+const host = document.getElementById("pairs");
+PAIRS.forEach((p, i) => {
+  const n = i + 1;
+  const el = document.createElement("div");
+  el.className = "pair";
+  el.setAttribute("role", "radiogroup");
+  el.setAttribute("aria-labelledby", "ph" + n);
+  const side = (k, o) => {
+    const inner = preview(o);
+    const frame = o.pv === "slot" ? inner : '<div class="pv' + (o.sw || o.font || o.fit ? ' sq' : '') + '">' + inner + '</div>';
+    return '<div class="choice"><input type="radio" name="p' + n + '" id="p' + n + k + '" value="' + k + '">' +
+      '<label for="p' + n + k + '"><span class="tag"><span>' + k + '</span></span>' + frame +
+      '<span class="title">' + o.t + '</span><span class="desc">' + o.d + '</span></label></div>';
+  };
+  const head = '<div class="pair-head"><span class="num">' + n + ' / 8</span><h3 id="ph' + n + '">' + p.q + '</h3></div>' + (p.prompt ? '<p class="sub">' + p.prompt + '</p>' : '');
+  el.innerHTML = p.scale
+    ? head + '<div class="choices scale">' + p.opts.map((o, j) => side(String(j + 1), o)).join("") + '</div>'
+    : head + '<div class="choices">' + side("A", p.a) + side("B", p.b) + '</div>';
+  host.appendChild(el);
+});
+
+const QS = [
+  { id: "q1", q: "If a student came away with one thought about the History School, what should it be?", max: 1, hint: "Pick one",
+    opts: ["History is more interesting than I thought.", "I can do college-level work.", "People like me are part of this story.", "I learned from real historians and real documents.", "This will help me get where I want to go."],
+    other: "Or in your own words (optional)" },
+  { id: "q2", q: "Once students are in, what should keep them coming back?", max: 2, hint: "Pick up to two",
+    opts: ["Earning credit and a transcript", "Seeing their progress", "Great stories and real documents", "Learning from leading historians", "Choosing what to explore next", "A site that's a pleasure to use"],
+    other: "Or in your own words (optional)" },
+  { id: "q3", q: "How do students see the Institute today?", max: 1, hint: "Pick one",
+    opts: ["They haven't heard of it.", "A resource their teacher uses.", "Serious and trusted, but not for them.", "Old-fashioned.", "They already like it."],
+    other: "What should the School do differently? (optional)" }
+];
+const qbox = document.getElementById("qbox");
+QS.forEach((q, qi) => {
+  const el = document.createElement("div");
+  el.className = "q";
+  const type = q.max > 1 ? "checkbox" : "radio";
+  el.innerHTML = '<div class="qt" id="' + q.id + 'h">' + (qi + 1) + '. ' + q.q + ' <span class="hint">' + q.hint + '</span></div>' +
+    '<div class="chips" role="group" aria-labelledby="' + q.id + 'h">' + q.opts.map((o, j) =>
+      '<div class="chip"><input type="' + type + '" name="' + q.id + '" id="' + q.id + '_' + j + '" value="' + j + '"><label for="' + q.id + '_' + j + '">' + o + '</label></div>').join("") + '</div>' +
+    '<label class="field" for="' + q.id + 't"><span class="hint">' + q.other + '</span><input type="text" id="' + q.id + 't"></label>';
+  qbox.appendChild(el);
+});
+qbox.addEventListener("change", e => {
+  const q = QS.find(x => x.id === e.target.name);
+  if (q && q.max > 1 && e.target.checked && document.querySelectorAll('input[name="' + q.id + '"]:checked').length > q.max) e.target.checked = false;
+});
+
+const KEY = "glhs-brand-picks-v2";
+const fields = ["name", "q1t", "q2t", "q3t"];
+function state() {
+  const s = { picks: {}, qs: {} };
+  fields.forEach(f => s[f] = document.getElementById(f).value);
+  PAIRS.forEach((_, i) => { const c = document.querySelector('input[name="p' + (i + 1) + '"]:checked'); if (c) s.picks[i + 1] = c.value; });
+  QS.forEach(q => { s.qs[q.id] = [...document.querySelectorAll('input[name="' + q.id + '"]:checked')].map(x => Number(x.value)); });
+  return s;
+}
+function save() { try { localStorage.setItem(KEY, JSON.stringify(state())); } catch (e) {} }
+function restore() {
+  try {
+    const s = JSON.parse(localStorage.getItem(KEY) || "null");
+    if (!s) return;
+    fields.forEach(f => { if (s[f]) document.getElementById(f).value = s[f]; });
+    Object.entries(s.picks || {}).forEach(([n, v]) => { const r = document.getElementById("p" + n + v); if (r) r.checked = true; });
+    Object.entries(s.qs || {}).forEach(([id, vals]) => vals.forEach(v => { const r = document.getElementById(id + "_" + v); if (r) r.checked = true; }));
+  } catch (e) {}
+}
+function progress() {
+  const c = Object.keys(state().picks).length;
+  document.getElementById("count").textContent = c;
+  document.getElementById("fill").style.width = (c / 8 * 100) + "%";
+}
+function summary() {
+  const s = state();
+  const lines = ["History School picks from " + (s.name.trim() || "(name not given)"), ""];
+  PAIRS.forEach((p, i) => {
+    const v = s.picks[i + 1];
+    const o = p.scale ? (v ? p.opts[Number(v) - 1] : null) : v === "A" ? p.a : v === "B" ? p.b : null;
+    lines.push((i + 1) + ". " + p.q + ": " + (o ? (p.scale ? "step " + v + " of 5, " : v + ", ") + o.t : "no pick"));
+  });
+  lines.push("");
+  QS.forEach((q, i) => {
+    const chosen = (s.qs[q.id] || []).map(j => q.opts[j]);
+    lines.push((i + 1) + ". " + q.q);
+    lines.push("   " + (chosen.length ? chosen.join(" / ") : "(no pick)"));
+    const t = s[q.id + "t"].trim();
+    if (t) lines.push("   " + (q.id === "q3" ? "Do differently: " : "In their words: ") + t);
+    lines.push("");
+  });
+  return lines.join("\n").trim();
+}
+function refreshMail() {
+  const s = state();
+  const subj = "History School picks: " + (s.name.trim() || "my answers");
+  document.getElementById("mail").href = "mailto:nprestileo@gmail.com?subject=" + encodeURIComponent(subj) + "&body=" + encodeURIComponent(summary());
+}
+
+document.addEventListener("input", () => { save(); progress(); refreshMail(); });
+document.addEventListener("change", () => { save(); progress(); refreshMail(); });
+
+document.getElementById("copy").addEventListener("click", () => {
+  const text = summary();
+  const out = document.getElementById("out");
+  const status = document.getElementById("status");
+  out.textContent = text;
+  out.hidden = false;
+  const missing = 8 - Object.keys(state().picks).length;
+  const note = missing ? " " + missing + " pick" + (missing > 1 ? "s are" : " is") + " still blank; you can go back and add them." : "";
+  const done = () => { status.textContent = "Copied. Paste it into an email to nprestileo@gmail.com." + note; };
+  const fallback = () => {
+    const r = document.createRange(); r.selectNodeContents(out);
+    const sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+    status.textContent = "Your answers are selected below. Copy them, then paste into an email to nprestileo@gmail.com." + note;
+  };
+  try { navigator.clipboard.writeText(text).then(done, fallback); } catch (e) { fallback(); }
+});
+
+restore(); progress(); refreshMail();
+</script>
+
+</body>
+</html>
